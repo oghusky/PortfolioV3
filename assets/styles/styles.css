@@ -1,0 +1,376 @@
+/* variables */
+:root {
+  --canvas-background: #2e2e2e;
+  --main-header-text-color: #fafafa;
+  --my-name-text-color: #33b5e5;
+  --icon-color: #3f729b;
+  --content-text-color: #3e4551;
+  --red-for-accent: #a20021;
+  --nav-background: #1d1d1d;
+  --name-header-span: #0099cc;
+  --grey-color-background: #eeeeee;
+}
+/* makes pages full screen and hides side scrolling */
+html,
+body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+}
+/* smooths text */
+body {
+  -webkit-font-smoothing: antialiased;
+}
+/* makes canvas sit behind text */
+canvas {
+  background-color: var(--canvas-background);
+  position: absolute;
+}
+#canvas-div {
+  display: block;
+}
+/* centers text horizontally */
+header {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  padding: 20% 0;
+}
+h1 {
+  font-family: Raleway, sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--main-header-text-color);
+  line-height: 2.8rem;
+}
+#canvas-text {
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 4rem;
+  font-weight: 600;
+}
+#my-name {
+  color: var(--name-header-span);
+}
+#btn-div {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 20px;
+}
+#header-btn {
+  color: var(--main-header-text-color);
+  background: transparent;
+  border: 2px solid var(--main-header-text-color);
+  border-radius: 0;
+  font-size: 1.5rem;
+}
+#header-btn:hover {
+  background: var(--main-header-text-color);
+  color: var(--canvas-background);
+  transition: all;
+}
+
+.iconrotate {
+  transform: rotateZ(180deg);
+  transition-property: rotateZ(180deg);
+  transition-duration: 0.5s;
+}
+/* navbar height on mobile */
+nav {
+  background: var(--nav-background);
+  border-bottom: 3px solid var(--red-for-accent);
+  z-index: 2;
+  position: relative;
+  padding: 0%;
+  margin: 0%;
+}
+.navMobileHeight {
+  padding: 2rem;
+}
+nav a {
+  color: var(--main-header-text-color);
+}
+.nav-item:hover {
+  color: var(--name-header-span);
+}
+#burger-span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--main-header-text-color);
+  border-radius: 0;
+  margin: 5px 0;
+  padding: 0;
+}
+#hamburger {
+  border: none;
+  outline: none;
+}
+/* about section styles */
+#about-underline,
+#project-underline,
+#stats-underline {
+  border-bottom: 4px solid var(--canvas-background);
+  width: 150px;
+  margin: 0 auto;
+}
+#web-design,
+#graphic-design,
+#market-design {
+  text-align: center;
+}
+#about-sect #laptop-icon {
+  font-size: 2.2rem;
+}
+/* sets font awesome icons size and color */
+#about-sect .fas {
+  background-color: var(--red-for-accent);
+  color: var(--main-header-text-color);
+  padding: 3rem;
+  font-size: 3rem;
+  margin: 1rem 0rem;
+  border-radius: 50%;
+}
+#about-sect h4 {
+  font-size: 2rem;
+  position: relative;
+}
+#about-info {
+  margin-top: 1rem;
+}
+/* mascot styles */
+#about-pic {
+  margin: 0 auto;
+}
+#about-pic img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+}
+#about-sect2 {
+  margin: 1rem 0;
+}
+/* progress bars */
+#progress-header {
+  font-size: 2rem;
+}
+.progress {
+  height: 30px;
+  box-shadow: none;
+  margin: 1rem auto;
+  overflow: visible;
+  width: 80%;
+  border-radius: 0%;
+  padding: 0;
+}
+.progress .progress-bar {
+  box-shadow: none;
+  position: relative;
+}
+
+.progress-animate .progress .progress-bar {
+  animation: animateBars 2s;
+}
+
+.progress .input-group-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+  left: 7px;
+  padding: 0px 10px 0px 5px;
+  font-weight: 500;
+  border-right: 2px solid white;
+  width: 85px;
+  background-color: var(--red-for-accent);
+  border-radius: 0px;
+}
+.progress .progress-value {
+  width: 25px;
+  height: 13px;
+  line-height: 15px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 4px;
+  opacity: 1;
+}
+
+.progress-animate .progress .html.progress-bar,
+.progress-animate .progress .css.progress-bar,
+.progress-animate .progress .javascript.progress-bar,
+.progress-animate .progress .react.progress-bar,
+.progress-animate .progress .node.progress-bar {
+  width: 17%;
+  background: var(--red-for-accent);
+  margin: 1px 0px;
+}
+.ps.progress-bar {
+  width: 100%;
+  background: var(--red-for-accent);
+  margin: 1px 0px;
+}
+.ai.progress-bar,
+.indesign.progress-bar {
+  width: 42%;
+  background: var(--red-for-accent);
+  margin: 1px 0px;
+}
+/* animates progress bars */
+@keyframes animateBars {
+  0% {
+    width: 0;
+  }
+}
+.my-info {
+  width: 70%;
+  margin: 0 auto;
+}
+/* projects section */
+#projects {
+  background: var(--grey-color-background);
+  padding: 3rem;
+  margin-top: 6rem;
+}
+.blog-div .img-fluid {
+  width: 100%;
+  height: 12rem;
+}
+/* Blog section */
+.blog-div {
+  margin: 0 auto;
+}
+.blog-div h5 {
+  margin-top: 5px;
+}
+#blog-date {
+  margin-top: -5px;
+  font-size: 13px;
+}
+#blog-para {
+  margin-top: -5px;
+}
+.blog-div p {
+  padding: 0;
+}
+#blog-btn {
+  border-radius: 0px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #fafafa;
+}
+/* Contact section */
+#stats,
+#full-contact {
+  padding: 3rem;
+}
+#contact-header {
+  color: var(--grey-color-background);
+}
+#contact-underline {
+  border-bottom: 4px solid var(--grey-color-background);
+  width: 150px;
+  margin: 0 auto;
+}
+#full-contact,
+#text-input,
+#email-input,
+#textarea {
+  background: var(--canvas-background);
+}
+#text-input,
+#email-input,
+#textarea {
+  border: none;
+}
+#text-input:focus,
+#email-input:focus,
+#textarea:focus {
+  color: var(--grey-color-background);
+  outline: none;
+  box-shadow: none;
+}
+#full-contact h6 {
+  color: #33b5e5;
+  margin-top: 1rem;
+}
+#outer-form-div {
+  width: 40%;
+  margin: 0 auto;
+  padding: 3rem;
+}
+#text-input,
+#email-input,
+#textarea {
+  border-radius: 0px;
+}
+button#submit {
+  border-radius: 0px;
+  background: var(--grey-color-background);
+  color: var(--canvas-background);
+  outline: none;
+}
+button#submit:hover {
+  background: var(--canvas-background);
+  color: var(--grey-color-background);
+  border: 1px solid #eeeeee;
+}
+footer {
+  background: #1d1d1d;
+  color: var(--grey-color-background);
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0;
+}
+footer p {
+  padding: 0;
+  margin: 0;
+}
+@media screen and (max-width: 800px) {
+  header {
+    padding: 40% 0;
+  }
+  #outer-form-div {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 600px) {
+  header {
+    padding: 50% 0;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 0 10px;
+  }
+  #outer-form-div {
+    width: 95%;
+  }
+  #btn-div {
+    margin-bottom: 110px;
+  }
+}
+@media screen and (max-width: 400px) {
+  header {
+    padding: 65% 0;
+  }
+  h1 {
+    padding: 0 10px;
+  }
+  #btn-div {
+    margin-bottom: 80px;
+  }
+}
