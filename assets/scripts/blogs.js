@@ -11,10 +11,8 @@ class Blog {
   }
 }
 class UI {
-  bloop(target) {
-    if (target.className === "btn btn-info") {
-      $(".modal").modal("show");
-    }
+  modalTrigger() {
+    $(".modal").modal("show");
   }
 }
 blogList[0] = new Blog(
@@ -34,19 +32,28 @@ blogList[1] = new Blog(
 );
 
 blogList.forEach(blog => {
-  const blogDiv = $(".blog-div");
-  const newPerBlog = $(`<div  class="col-md-4 col-sm-12">`);
-  const newWithHtml = newPerBlog.html(`
-      <img class="img-fluid" src="${blog.img}"/>
-      <h5>${blog.title}</h5>
-      <p id="blog-date">${blog.date}</p>
-      <p id="blog-para" class="text-truncate">${blog.content}</p>
-      <button  id="blog-btn" class="btn btn-info">See More</button>
+  let blogDiv = $(".blog-div");
+  let newPerBlog = $(`<div  class="col-md-4 col-sm-12">`);
+  let newWithHtml = newPerBlog.html(`
+        <a id="blog-btn">
+        <img class="img-fluid" src="${blog.img}"/>
+        <h5>${blog.title}</h5>
+        <p id="blog-date">${blog.date}</p>
+        <p id="blog-para" class="text-truncate">${blog.content}</p>
+        </a>
       `);
   blogDiv.append(newWithHtml);
+
+  $(".modal-body").html(`
+        <img class="img-fluid" src="${blog.img}"/>
+        <h5>${blog.title}</h5>
+        <p id="blog-date">${blog.date}</p>
+        <p id="blog-para">${blog.content}</p>
+        `);
 });
+
 document.querySelector(".blog-div").addEventListener("click", e => {
-  let blogUI = new UI();
-  blogUI.bloop(e.target);
+  const blogUI = new UI();
+  blogUI.modalTrigger(e);
   e.preventDefault();
 });
