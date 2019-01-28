@@ -30,10 +30,19 @@ blogList[1] = new Blog(
   GET FRIENDS THAT HAVE YOU SAME GOALS. The closer their goals match yours the closer 
   your relationship with them should be.`
 );
+blogList[2] = new Blog(
+  `https://i.imgflip.com/s9t87.jpg`,
+  `The frustration of Coding`,
+  `01/28/2019`,
+  `Coding is equally frustrating and rewarding. When you try something new...
+    Hit Save(Compile) and it actually works...There's not better feeling. But, if you follow
+     those steps and get an error in your code...The frustration is as deep and vast as the 
+     emptiness of space!!!!! `
+);
 
 blogList.forEach(blog => {
   let blogDiv = $(".blog-div");
-  let newPerBlog = $(`<div  class="col-md-4 col-sm-12">`);
+  let newPerBlog = $(`<div class="col-md-4 col-sm-12" style="width: 80%">`);
   let newWithHtml = newPerBlog.html(`
         <a id="blog-btn">
         <img class="img-fluid" src="${blog.img}"/>
