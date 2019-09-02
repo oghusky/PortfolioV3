@@ -18,6 +18,9 @@ body {
   overflow-x: hidden;
   padding: 0;
 }
+html{
+  scroll-behavior: smooth;
+}
 /* smooths text */
 body {
   -webkit-font-smoothing: antialiased;
